@@ -7,3 +7,5 @@
 # Ekran Görüntüleri
 
 ![s1](https://i.imgur.com/KUrUjAj.jpg) ![s2](https://i.imgur.com/mNwn0QJ.jpg)
+![s3](https://i.imgur.com/MPIwJd5.jpg) ![s4](https://i.imgur.com/9ulVYnu.jpg)
+![s5](https://i.imgur.com/t6uImki.jpg)
