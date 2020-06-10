@@ -6,4 +6,4 @@
 
 # Ekran Görüntüleri
 
-![s1](https://i.imgur.com/GwwAvBF.png)
+![s1]([img]https://i.imgur.com/KUrUjAj.jpg[/img])
