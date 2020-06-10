@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"            
+             mc:Ignorable="d"
+             x:Class="FutbolAnalizXamarin.MainPage"
+             Title="Futbol Analiz" 
+             >
+
+    <StackLayout>
+
+        <Picker x:Name="ListLig" Title="Lig Seçiniz" ItemsSource="{Binding Ligler}"
+        ItemDisplayBinding="{Binding lig_ad}" SelectedItem="{Binding MySelectedLigItem}"/>
+
+        <syncfusion:SfDataGrid x:Name="PuanDurumuView" AutoGenerateColumns="False" 
+                   ColumnSizer="Star"              ItemsSource="{Binding PuanDurumu,Mode=TwoWay}" 
+                   VerticalOverScrollMode="None"   NotificationSubscriptionMode="CollectionChange"
+                     SelectionMode="Single">
+            <syncfusion:SfDataGrid.Style>
+                <Style TargetType="syncfusion:SfDataGrid">
+                    <Setter Property="IsVisible" Value="True"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding PuanDurumu.Count}" Value="0" TargetType="syncfusion:SfDataGrid">
+                            <Setter Property="IsVisible" Value="False"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+
+                </Style>
+            </syncfusion:SfDataGrid.Style>
+
+        <syncfusion:SfDataGrid.Columns>
+
+                <syncfusion:GridTextColumn MappingName="sira"  HeaderText="#"/>
+                <syncfusion:GridTextColumn Width="100" MappingName="takim_ad" HeaderText="Takim" />
+                <syncfusion:GridTextColumn MappingName="Oynadigi"  HeaderText="O"/>
+                <syncfusion:GridTextColumn MappingName="Galibiyet" HeaderText="G"/>
+                <syncfusion:GridTextColumn MappingName="Beraberlik" HeaderText="B"/>
+                <syncfusion:GridTextColumn MappingName="Maglubiyet" HeaderText="M"/>
+                <syncfusion:GridTextColumn MappingName="Attigi" HeaderText="A"/>
+                <syncfusion:GridTextColumn MappingName="Yedigi" HeaderText="Y"/>
+                <syncfusion:GridTextColumn MappingName="Averaj" HeaderText="Av"/>
+                <syncfusion:GridTextColumn MappingName="Puan" HeaderText="P"/>
+
+
+            </syncfusion:SfDataGrid.Columns>
+            
+        </syncfusion:SfDataGrid>
+
+
+
+
+
+        <!--
+        <syncfusion:SfDataGrid x:Name="dataGrid"
+                           ItemsSource="{Binding Ligler}">
+        </syncfusion:SfDataGrid>
+-->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+            
+            <Button Text="Lig İstatistikleri" Clicked="Click_Lig_istatistik" HorizontalOptions="FillAndExpand" x:Name="lig_btn">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True"/>
+                        <Setter Property="IsVisible" Value="True"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding PuanDurumu.Count}" Value="0" TargetType="Button">
+                                <Setter Property="IsEnabled" Value="False"/>
+                                <Setter Property="IsVisible" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>    
+
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Text="Takim İstatistikleri" Clicked="Click_Takim_istatistik"  HorizontalOptions="FillAndExpand" IsVisible="{Binding Source={x:Reference lig_btn} , Path=IsVisible}" >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="IsEnabled" Value="True"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Source={x:Reference PuanDurumuView}, Path=SelectedIndex}" Value="-1" TargetType="Button">
+                                <Setter Property="IsEnabled" Value="False"/>
+
+                            </DataTrigger>
+                        </Style.Triggers>
+
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

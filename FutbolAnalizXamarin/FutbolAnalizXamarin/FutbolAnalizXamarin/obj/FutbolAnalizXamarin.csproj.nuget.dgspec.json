@@ -1,0 +1,95 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Baris\\source\\repos\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Baris\\source\\repos\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Baris\\source\\repos\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin.csproj",
+        "projectName": "FutbolAnalizXamarin",
+        "projectPath": "C:\\Users\\Baris\\source\\repos\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin.csproj",
+        "packagesPath": "C:\\Users\\Baris\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Baris\\source\\repos\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Baris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "DLToolkit.Forms.Controls.FlowListView": {
+              "target": "Package",
+              "version": "[2.0.11, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Plugin.Toast": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Syncfusion.Xamarin.SfChart": {
+              "target": "Package",
+              "version": "[18.1.0.55, )"
+            },
+            "Syncfusion.Xamarin.SfDataGrid": {
+              "target": "Package",
+              "version": "[18.1.0.54, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.3.1, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.5.0.495, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

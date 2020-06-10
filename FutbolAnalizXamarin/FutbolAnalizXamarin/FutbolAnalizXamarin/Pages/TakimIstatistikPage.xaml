@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:converter="clr-namespace:FutbolAnalizXamarin.Converters" xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             x:Class="FutbolAnalizXamarin.Pages.TakimIstatistikPage" >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor"  Value = "Black"/>
+            </Style>
+            <converter:ByteArrayToImageSourceConverter x:Key="ByteToImageConverter"/>
+
+            <chart:ChartColorCollection x:Key="ColorPie">
+                <Color>#8bc34a</Color>
+                <Color>#F44336</Color>
+            </chart:ChartColorCollection>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <!-- 2196F3 -->
+
+        <StackLayout  Spacing="0">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+            <!-- MainMenuItems "#2196F3"   <Button Clicked="mainMenuClick"  HorizontalOptions="FillAndExpand" Text="{Binding Ad}" IsVisible="{Binding Visibility}" BackgroundColor="Blue" TextColor="White" FontSize="15" VerticalOptions="Center"/> -->
+
+            <!--   Main Menu     -->
+            <StackLayout HeightRequest="50" Spacing="0" Margin="0" BackgroundColor="Blue" IsVisible="True" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button Text="Alt/Ust" HorizontalOptions="FillAndExpand" BackgroundColor="Blue" TextColor="White" FontSize="17" Clicked="ClickAUBtn" />
+                <Button Text="Son 5 Maç" HorizontalOptions="FillAndExpand" BackgroundColor="Blue" TextColor="White" FontSize="17" Clicked="ClickSon5Btn" />
+                <Button Text="Goller" HorizontalOptions="FillAndExpand" BackgroundColor="Blue" TextColor="White" FontSize="17" Clicked="ClickGollerBtn"/>
+            </StackLayout>
+
+            <!-- AU Menu -->
+            <StackLayout x:Name="menu_Au" HeightRequest="50" Spacing="0" Margin="0" Grid.Row="1" BackgroundColor="#2196F3" IsVisible="True" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button Text="1.5 A/U" HorizontalOptions="FillAndExpand" BackgroundColor="#2196F3" TextColor="White" FontSize="16" Clicked="ClickAuMenuItems"/>
+                <Button Text="2.5 A/U" HorizontalOptions="FillAndExpand" BackgroundColor="#2196F3" TextColor="White" FontSize="16" Clicked="ClickAuMenuItems"/>
+                <Button Text="3.5 A/U" HorizontalOptions="FillAndExpand" BackgroundColor="#2196F3" TextColor="White" FontSize="16" Clicked="ClickAuMenuItems"/>
+            </StackLayout>
+
+            <!-- Goller  Menu -->
+            <StackLayout x:Name="menu_goller" Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="50" Spacing="0" Margin="0" Grid.Row="1" IsVisible="False" BackgroundColor="#2196F3">
+                <Button Text="Genel" HorizontalOptions="FillAndExpand" BackgroundColor="#2196F3" TextColor="White" FontSize="16" Clicked="ClickGollerMenuItems"/>
+                <Button Text="iy Goller" HorizontalOptions="FillAndExpand" BackgroundColor="#2196F3" TextColor="White" FontSize="16" Clicked="ClickGollerMenuItems"/>
+                <Button Text="Toplam Gol" HorizontalOptions="FillAndExpand" BackgroundColor="#2196F3" TextColor="White" FontSize="16" Clicked="ClickGollerMenuItems"/>
+            </StackLayout>
+
+            <!--  Icerik  -->
+            <StackLayout Grid.Row="2" VerticalOptions="FillAndExpand" x:Name="layout_Content">
+                <!-- -->
+                <!-- Takim Adi ve Logosu -->
+                <StackLayout Orientation="Vertical" Margin="0,2,0,2" Spacing="0" IsVisible="True" >
+                    <Image Source="{Binding mTakimDetay.MyTakim.takim_logo , Converter={StaticResource ByteToImageConverter}}" HorizontalOptions="Center" WidthRequest="60" HeightRequest="60" />
+                    <Label Text="{Binding mTakimDetay.MyTakim.takim_ad}" HorizontalTextAlignment="Center" FontSize="21" TextColor="Black"></Label>
+                    <BoxView BackgroundColor="Black" HeightRequest="1" HorizontalOptions="Fill"></BoxView>
+                </StackLayout>
+
+                
+                
+              <!--   Charts      -->
+                <!--  Son 5 mac      -->
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" IsVisible="False" x:Name="layout_Son5Mac">
+                    <ListView x:Name="listView" ItemsSource="{Binding mTakimDetay.Son5MacListesi}" HorizontalOptions="Center" HasUnevenRows="True" VerticalOptions="Center" IsVisible="{Binding Source={x:Reference layout_Son5Mac},Path=IsVisible}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  Margin="0,15,0,0">
+                                        <Label Text="{Binding evSahibi}" FontSize="16" HorizontalTextAlignment="End" WidthRequest="150" VerticalOptions="End" HorizontalOptions="EndAndExpand"  ></Label>
+
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="iy: " FontSize="12"></Label>
+                                                <Label Text="{Binding eviy_sk }" FontSize="12"></Label>
+                                                <Label Text="-" FontSize="12"></Label>
+                                                <Label Text="{Binding depiy_sk}" FontSize="12"></Label>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                <Label Text="  " ></Label>
+                                                <Label Text="{Binding evms_sk}" FontSize="16" ></Label>
+                                                <Label Text="-" FontSize="16" ></Label>
+                                                <Label Text="{Binding depms_sk}" FontSize="16"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <Label Text="  "></Label>
+                                        <Label Text="{Binding deplasman}" VerticalOptions="End" WidthRequest="150"  FontSize="16" ></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <!--   Alt Ust     -->
+                <StackLayout x:Name="layout_AU" IsVisible="True" VerticalOptions="FillAndExpand">
+                    <!--  A/U Charts  -->
+                    <!-- bir Bucuk -->
+                    <StackLayout  x:Name="layout_BirBucuk" IsVisible="True">
+                        <chart:SfChart WidthRequest="300" HeightRequest="300" >
+                            <chart:SfChart.Series>
+                                <chart:PieSeries  EnableAnimation="False" ItemsSource="{Binding mTakimDetay.BirBucuk}" 
+                                     XBindingPath="Name" YBindingPath="Quantity" EnableTooltip="True">
+                                    <chart:PieSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource ColorPie}"/>
+                                    </chart:PieSeries.ColorModel>
+                                </chart:PieSeries>
+
+                            </chart:SfChart.Series>
+
+                            <chart:SfChart.Title>
+                                <chart:ChartTitle Text="Bir Buçuk A/Ü" TextColor="Black" TextAlignment="Center" FontSize="25"  />
+                            </chart:SfChart.Title>
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend>
+                                    <chart:ChartLegend.LabelStyle>
+
+                                        <chart:ChartLegendLabelStyle  Font="Bold,18"/>
+
+                                    </chart:ChartLegend.LabelStyle>
+                                </chart:ChartLegend>
+                            </chart:SfChart.Legend>
+                        </chart:SfChart>
+                    </StackLayout>
+                    <!-- Iki Bucuk -->
+                    <StackLayout  x:Name="layout_IkiBucuk" IsVisible="False" >
+                        <chart:SfChart WidthRequest="300" HeightRequest="300">
+                            <chart:SfChart.Series>
+                                <chart:PieSeries EnableAnimation="False"  ItemsSource="{Binding mTakimDetay.IkiBucuk}" 
+                                     XBindingPath="Name" YBindingPath="Quantity" EnableTooltip="True">
+                                    <chart:PieSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource ColorPie}"/>
+                                    </chart:PieSeries.ColorModel>
+                                </chart:PieSeries>
+
+                            </chart:SfChart.Series>
+
+                            <chart:SfChart.Title>
+                                <chart:ChartTitle Text="İki Buçuk A/Ü" TextColor="Black" TextAlignment="Center" FontSize="25"  />
+                            </chart:SfChart.Title>
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend>
+                                    <chart:ChartLegend.LabelStyle>
+
+                                        <chart:ChartLegendLabelStyle  Font="Bold,18"/>
+
+                                    </chart:ChartLegend.LabelStyle>
+                                </chart:ChartLegend>
+                            </chart:SfChart.Legend>
+                        </chart:SfChart>
+                    </StackLayout>
+                    <!-- uc Bucuk -->
+                    <StackLayout x:Name="layout_UcBucuk" IsVisible="False" >
+                        <chart:SfChart WidthRequest="300" HeightRequest="300">
+                            <chart:SfChart.Series>
+                                <chart:PieSeries EnableAnimation="False" ItemsSource="{Binding mTakimDetay.UcBucuk}" 
+                                     XBindingPath="Name" YBindingPath="Quantity" EnableTooltip="True">
+                                    <chart:PieSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom" CustomBrushes="{StaticResource ColorPie}"/>
+                                    </chart:PieSeries.ColorModel>
+                                </chart:PieSeries>
+
+                            </chart:SfChart.Series>
+
+                            <chart:SfChart.Title>
+                                <chart:ChartTitle Text="Üç Buçuk A/Ü" TextColor="Black" TextAlignment="Center" FontSize="25"  />
+                            </chart:SfChart.Title>
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend>
+                                    <chart:ChartLegend.LabelStyle>
+
+                                        <chart:ChartLegendLabelStyle  Font="Bold,18"/>
+
+                                    </chart:ChartLegend.LabelStyle>
+                                </chart:ChartLegend>
+                            </chart:SfChart.Legend>
+                        </chart:SfChart>
+                    </StackLayout>
+
+                </StackLayout>
+
+
+                <!--   GOLLER Charts     -->
+                <StackLayout x:Name="layout_Goller" IsVisible="False">
+                    <!-- Toplam Gol Performansi -->
+
+                    <StackLayout IsVisible="False" x:Name="layout_ToplamGol">
+                        <chart:SfChart WidthRequest="300" HeightRequest="450" Margin="0,2,0,0">
+                            <chart:SfChart.PrimaryAxis>
+                                <chart:CategoryAxis>
+                                    <chart:CategoryAxis.Title>
+                                        <chart:ChartAxisTitle Text="Hafta" TextColor="Black" FontSize="12"/>
+                                    </chart:CategoryAxis.Title>
+                                    <chart:CategoryAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle FontSize="12" TextColor="Black"/>
+
+                                    </chart:CategoryAxis.LabelStyle>
+                                </chart:CategoryAxis>
+                            </chart:SfChart.PrimaryAxis>
+                            <chart:SfChart.SecondaryAxis>
+                                <chart:NumericalAxis Interval="1">
+                                    <chart:NumericalAxis.Title>
+                                        <chart:ChartAxisTitle Text="Maçlarındaki Toplam Gol" TextColor="Black" FontSize="12"></chart:ChartAxisTitle>
+                                    </chart:NumericalAxis.Title>
+                                    <chart:NumericalAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle FontSize="12" TextColor="Black"/>
+
+                                    </chart:NumericalAxis.LabelStyle>
+
+                                </chart:NumericalAxis>
+                            </chart:SfChart.SecondaryAxis>
+                            <chart:SfChart.Series>
+                                <chart:LineSeries StrokeWidth="3"  ItemsSource="{Binding mTakimDetay.MaclarindakiToplamGol}" XBindingPath="Name" YBindingPath="Quantity" EnableAnimation="True" >
+                                    <chart:LineSeries.DataMarker>
+                                        <chart:ChartDataMarker MarkerWidth="10" MarkerHeight="10" ShowLabel="False" ShowMarker="true" MarkerBorderColor="#00bdae" MarkerBorderWidth="2" MarkerColor="White">
+                                        </chart:ChartDataMarker>
+                                    </chart:LineSeries.DataMarker>
+
+
+
+                                </chart:LineSeries>
+
+                            </chart:SfChart.Series>
+                        </chart:SfChart>
+                    </StackLayout>
+
+                    
+
+                    <!-- Maclarin Ilk Yarilarinda attigi ve yedigi Goller  -->
+
+
+                    <StackLayout IsVisible="False" x:Name="layout_IlkYariGoller">
+                        <chart:SfChart WidthRequest="300" HeightRequest="450" Margin="0,2,0,0">
+                            <chart:SfChart.PrimaryAxis>
+                                <chart:CategoryAxis>
+                                    <chart:CategoryAxis.Title>
+                                        <chart:ChartAxisTitle Text="Hafta" TextColor="Black" FontSize="14"/>
+                                    </chart:CategoryAxis.Title>
+                                    <chart:CategoryAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle FontSize="14" TextColor="Black"/>
+
+                                    </chart:CategoryAxis.LabelStyle>
+                                </chart:CategoryAxis>
+                            </chart:SfChart.PrimaryAxis>
+                            <chart:SfChart.SecondaryAxis>
+                                <chart:NumericalAxis Interval="1">
+                                    <chart:NumericalAxis.Title>
+                                        <chart:ChartAxisTitle Text="Maçların İlk Yarılarında Attığı ve Yediği Goller" TextColor="Black" FontSize="14"></chart:ChartAxisTitle>
+                                    </chart:NumericalAxis.Title>
+                                    <chart:NumericalAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle FontSize="14" TextColor="Black"/>
+
+                                    </chart:NumericalAxis.LabelStyle>
+
+                                </chart:NumericalAxis>
+                            </chart:SfChart.SecondaryAxis>
+                            <chart:SfChart.Series>
+                                <chart:LineSeries IsVisibleOnLegend="True" StrokeWidth="3"  ItemsSource="{Binding mTakimDetay.MaclarindakiAttigiIyGol}" XBindingPath="Name" YBindingPath="Quantity" EnableAnimation="True" >
+                                    <chart:LineSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom">
+                                            <chart:ChartColorModel.CustomBrushes>
+                                                <Color>Green</Color>
+                                            </chart:ChartColorModel.CustomBrushes>
+
+                                        </chart:ChartColorModel>
+                                    </chart:LineSeries.ColorModel>
+                                    <chart:LineSeries.DataMarker>
+                                        <chart:ChartDataMarker MarkerWidth="10" MarkerHeight="10" ShowLabel="False" ShowMarker="true" MarkerBorderColor="#00bdae" MarkerBorderWidth="2" MarkerColor="White">
+                                        </chart:ChartDataMarker>
+                                    </chart:LineSeries.DataMarker>
+                                </chart:LineSeries>
+                                <chart:LineSeries IsVisibleOnLegend="False" StrokeWidth="3"  ItemsSource="{Binding mTakimDetay.MaclarindakiYedigiIyGol}" XBindingPath="Name" YBindingPath="Quantity" EnableAnimation="True" >
+                                    <chart:LineSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom">
+                                            <chart:ChartColorModel.CustomBrushes>
+                                                <Color>Red</Color>
+                                            </chart:ChartColorModel.CustomBrushes>
+
+                                        </chart:ChartColorModel>
+                                    </chart:LineSeries.ColorModel>
+                                    <chart:LineSeries.DataMarker>
+                                        <chart:ChartDataMarker MarkerWidth="10" MarkerHeight="10" ShowLabel="False" ShowMarker="true" MarkerBorderColor="#00bdae" MarkerBorderWidth="2" MarkerColor="White">
+                                        </chart:ChartDataMarker>
+                                    </chart:LineSeries.DataMarker>
+
+                                </chart:LineSeries>
+                            </chart:SfChart.Series>
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend>
+                                    <chart:ChartLegend.ItemTemplate>
+                                        <DataTemplate>
+
+                                            <StackLayout Orientation="Horizontal" WidthRequest="143">
+
+                                                <BoxView Color="Green" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="13" WidthRequest="13" />
+                                                <Label FontSize="13" VerticalTextAlignment="Center" Text="Attigi"/>
+                                                <BoxView Color="Red" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="13" WidthRequest="13" />
+                                                <Label FontSize="13" VerticalTextAlignment="Center" Text="Yedigi"/>
+                                            </StackLayout>
+
+                                        </DataTemplate>
+
+                                    </chart:ChartLegend.ItemTemplate>
+                                </chart:ChartLegend>
+                            </chart:SfChart.Legend>
+                        </chart:SfChart>
+                    </StackLayout>
+
+                    <!-- Maclarda Attıgı ve Yedigi Goller   -->
+
+                    <StackLayout IsVisible="False" x:Name="layout_AttigiYedigiGoller">
+                        <chart:SfChart WidthRequest="300" HeightRequest="450" Margin="0,2,0,0">
+                            <chart:SfChart.PrimaryAxis>
+                                <chart:CategoryAxis>
+                                    <chart:CategoryAxis.Title>
+                                        <chart:ChartAxisTitle Text="Hafta" TextColor="Black" FontSize="14"/>
+                                    </chart:CategoryAxis.Title>
+                                    <chart:CategoryAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle FontSize="14" TextColor="Black"/>
+
+                                    </chart:CategoryAxis.LabelStyle>
+                                </chart:CategoryAxis>
+                            </chart:SfChart.PrimaryAxis>
+                            <chart:SfChart.SecondaryAxis>
+                                <chart:NumericalAxis Interval="1">
+                                    <chart:NumericalAxis.Title>
+                                        <chart:ChartAxisTitle Text="Maçlarındaki Attığı ve Yediği Goller" TextColor="Black" FontSize="14"></chart:ChartAxisTitle>
+                                    </chart:NumericalAxis.Title>
+                                    <chart:NumericalAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle FontSize="14" TextColor="Black"/>
+
+                                    </chart:NumericalAxis.LabelStyle>
+
+                                </chart:NumericalAxis>
+                            </chart:SfChart.SecondaryAxis>
+                            <chart:SfChart.Series>
+                                <chart:LineSeries IsVisibleOnLegend="True" StrokeWidth="3"  ItemsSource="{Binding mTakimDetay.AttigiSeries}" XBindingPath="Name" YBindingPath="Quantity" EnableAnimation="True" >
+                                    <chart:LineSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom">
+                                            <chart:ChartColorModel.CustomBrushes>
+                                                <Color>Green</Color>
+                                            </chart:ChartColorModel.CustomBrushes>
+
+                                        </chart:ChartColorModel>
+                                    </chart:LineSeries.ColorModel>
+                                    <chart:LineSeries.DataMarker>
+                                        <chart:ChartDataMarker MarkerWidth="10" MarkerHeight="10" ShowLabel="False" ShowMarker="true" MarkerBorderColor="#00bdae" MarkerBorderWidth="2" MarkerColor="White">
+                                        </chart:ChartDataMarker>
+                                    </chart:LineSeries.DataMarker>
+                                </chart:LineSeries>
+                                <chart:LineSeries IsVisibleOnLegend="False" StrokeWidth="3"  ItemsSource="{Binding mTakimDetay.YedigiSeries}" XBindingPath="Name" YBindingPath="Quantity" EnableAnimation="True" >
+                                    <chart:LineSeries.ColorModel>
+                                        <chart:ChartColorModel Palette="Custom">
+                                            <chart:ChartColorModel.CustomBrushes>
+                                                <Color>Red</Color>
+                                            </chart:ChartColorModel.CustomBrushes>
+
+                                        </chart:ChartColorModel>
+                                    </chart:LineSeries.ColorModel>
+                                    <chart:LineSeries.DataMarker>
+                                        <chart:ChartDataMarker MarkerWidth="10" MarkerHeight="10" ShowLabel="False" ShowMarker="true" MarkerBorderColor="#00bdae" MarkerBorderWidth="2" MarkerColor="White">
+                                        </chart:ChartDataMarker>
+                                    </chart:LineSeries.DataMarker>
+
+                                </chart:LineSeries>
+                            </chart:SfChart.Series>
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend>
+                                    <chart:ChartLegend.ItemTemplate>
+                                        <DataTemplate>
+
+                                            <StackLayout Orientation="Horizontal" WidthRequest="143">
+
+                                                <BoxView Color="Green" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="13" WidthRequest="13" />
+                                                <Label FontSize="13" VerticalTextAlignment="Center" Text="Attigi"/>
+                                                <BoxView Color="Red" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="13" WidthRequest="13" />
+                                                <Label FontSize="13" VerticalTextAlignment="Center" Text="Yedigi"/>
+                                            </StackLayout>
+
+                                        </DataTemplate>
+
+                                    </chart:ChartLegend.ItemTemplate>
+                                </chart:ChartLegend>
+                            </chart:SfChart.Legend>
+                        </chart:SfChart>
+                    </StackLayout>
+
+                </StackLayout>
+
+
+                
+                
+
+
+
+
+            </StackLayout>
+
+
+
+           
+
+        </StackLayout>
+
+
+
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>

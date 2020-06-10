@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "ozunJOlUfb9WS3+kVtEfKrmULaB1Ywheeb72+8uVIhR5aOxfB30nU+XWCtjxHcpEqeIQhSwhvHuVz4Z/i+WyQw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Baris\\source\\repos\\FutbolAnalizXamarin\\FutbolAnalizXamarin\\FutbolAnalizXamarin.iOS\\FutbolAnalizXamarin.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Baris\\.nuget\\packages\\dltoolkit.forms.controls.flowlistview\\2.0.11\\dltoolkit.forms.controls.flowlistview.2.0.11.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\plugin.toast\\2.1.2\\plugin.toast.2.1.2.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\syncfusion.licensing\\18.1.0.55\\syncfusion.licensing.18.1.0.55.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\syncfusion.xamarin.core\\18.1.0.55\\syncfusion.xamarin.core.18.1.0.55.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\syncfusion.xamarin.gridcommon\\18.1.0.54\\syncfusion.xamarin.gridcommon.18.1.0.54.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\syncfusion.xamarin.sfchart\\18.1.0.55\\syncfusion.xamarin.sfchart.18.1.0.55.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\18.1.0.54\\syncfusion.xamarin.sfcombobox.18.1.0.54.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\syncfusion.xamarin.sfdatagrid\\18.1.0.54\\syncfusion.xamarin.sfdatagrid.18.1.0.54.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\syncfusion.xamarin.sfnumerictextbox\\18.1.0.54\\syncfusion.xamarin.sfnumerictextbox.18.1.0.54.nupkg.sha512",
+    "C:\\Users\\Baris\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.3.1\\xamarin.essentials.1.3.1.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.5.0.495\\xamarin.forms.4.5.0.495.nupkg.sha512"
+  ],
+  "logs": []
+}
