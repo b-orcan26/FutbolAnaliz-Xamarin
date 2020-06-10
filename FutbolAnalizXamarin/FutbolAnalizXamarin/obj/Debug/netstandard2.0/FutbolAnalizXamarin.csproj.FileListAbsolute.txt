@@ -1,0 +1,16 @@
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\Pages\LigIstatistikPage.xaml.g.cs
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\Pages\TakimIstatistikPage.xaml.g.cs
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\FutbolAnalizXamarin.AssemblyInfoInputs.cache
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\FutbolAnalizXamarin.AssemblyInfo.cs
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\FutbolAnalizXamarin.csproj.CoreCompileInputs.cache
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\bin\Debug\netstandard2.0\FutbolAnalizXamarin.deps.json
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\bin\Debug\netstandard2.0\FutbolAnalizXamarin.dll
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\bin\Debug\netstandard2.0\ref\FutbolAnalizXamarin.dll
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\bin\Debug\netstandard2.0\FutbolAnalizXamarin.pdb
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\FutbolAnalizXamarin.dll
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\ref\FutbolAnalizXamarin.dll
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\FutbolAnalizXamarin.pdb
+C:\Users\Baris\source\repos\FutbolAnalizXamarin\FutbolAnalizXamarin\FutbolAnalizXamarin\obj\Debug\netstandard2.0\FutbolAnalizXamarin.csprojAssemblyReference.cache
